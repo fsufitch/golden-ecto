@@ -1,0 +1,32 @@
+package main
+
+import ("fmt"
+	"os"
+
+	"goldecto/config"
+	"goldecto/db"
+)
+
+func main() {
+	fmt.Println("Hello world!")
+	
+	conf := config.ConfigFromFile(os.Args[1])
+	fmt.Println(conf)
+
+	db.Initialize(conf.Db.Driver, conf.Db.Source)
+	db.CreateUserTable()
+
+	u := db.GetUserByName("fsufitch")
+	
+	if u == nil {
+		u = db.NewUser("fsufitch", "abc", "foobar")
+		u.Store()
+	}
+
+	fmt.Println(u)
+
+	///
+	
+	uname, exists := db.UsernameFromApiLazy("49DBEF2E-043A-AB49-8F3B-5F5B15023777553C19FB-23F2-47BC-900F-16C8DAE9D32D")
+	fmt.Println(uname, exists)
+}

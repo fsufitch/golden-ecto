@@ -22,3 +22,13 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Go environment
+bin/
+pkg/
+src/github.com
+src/gopkg.in
+
+# Temp files
+*~
+\#*

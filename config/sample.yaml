@@ -1,0 +1,4 @@
+db:
+  driver: sqlite3
+  source: /var/tmp/goldecto.db
+
