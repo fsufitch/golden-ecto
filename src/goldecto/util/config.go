@@ -1,4 +1,4 @@
-package config
+package util
 
 import (
 	"io/ioutil"
@@ -10,6 +10,10 @@ type GoldEctoConfig struct {
 	Db struct {
 		Driver string
 		Source string
+	}
+	Web struct {
+		Host string
+		Port int
 	}
 }
 

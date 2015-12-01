@@ -3,14 +3,13 @@ package main
 import ("fmt"
 	"os"
 
-	"goldecto/config"
 	"goldecto/db"
 )
 
 func main() {
 	fmt.Println("Hello world!")
 	
-	conf := config.ConfigFromFile(os.Args[1])
+	conf := ConfigFromFile(os.Args[1])
 	fmt.Println(conf)
 
 	db.Initialize(conf.Db.Driver, conf.Db.Source)
